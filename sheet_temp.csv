@@ -1416,11 +1416,11 @@ https://www.cypherox.com/ai-chatbot-mobile-app-solutions
 https://www.cypherox.com/travel-apps-solutions
 https://www.cypherox.com/entertainment-apps-solutions
 https://www.cypherox.com/education-apps-solutions
-https://www.cypherox.com/fitness-app-solutions","Mobile menu: <a href=""/hire-e-commerce-developers"">Official Partners</a>. Desktop menu: href=""javascript:void(0)"" on inner pages and href=""#official-partners"" on the homepage.","1. In both menus, the ""Official Partners"" item should only open its submenu (Jibble, Shopify, Odoo); it should not navigate anywhere.
+https://www.cypherox.com/fitness-app-solutions","Mobile menu: <a href=""/hire-e-commerce-developers"">Official Partners</a>. Desktop menu: href=""javascript:void(0)"" on inner pages and href=""javascript:;"" on the homepage.","1. In both menus, the ""Official Partners"" item should only open its submenu (Jibble, Shopify, Odoo); it should not navigate anywhere.
 2. Replace the <a href=""javascript:void(0)""> (desktop) and the <a href=""/hire-e-commerce-developers""> (mobile) with a <button type=""button""> that toggles the submenu.
 3. Add aria-expanded=""false"" and update it to ""true"" in the existing toggle script when the submenu opens; add aria-controls pointing to the submenu id.
 4. Keep the same CSS classes so styling does not change; reset button default styles (border, background) if needed.
-5. On the homepage keep the #official-partners anchor only if a section with that id exists.","Before (mobile): <a href=""https://www.cypherox.com/hire-e-commerce-developers"">Official Partners</a>
+5. On the homepage keep the javascript:; anchor only if a section with that id exists.","Before (mobile): <a href=""https://www.cypherox.com/hire-e-commerce-developers"">Official Partners</a>
 Before (desktop): <a href=""javascript:void(0)"">Official Partners</a>
 After (both): <button type=""button"" class=""submenu-toggle"" aria-expanded=""false"">Official Partners</button>","View Source on /about-us and on /: no <a> with text ""Official Partners""; mobile menu contains no link to /hire-e-commerce-developers labelled ""Official Partners"".",No,S,Developer,Open
 SW09,"Portfolio-card labels and values marked up as headings (""Year"", ""2020"", ""Role"", ""Description"")",Medium,Template,"""Featured Projects"" / portfolio card component; also ""Our Clients"" as H2/H4, ROI calculator ""Inputs""/""Results"" as H2",81,"https://www.cypherox.com/terms-conditions - label headings: h2:Services
