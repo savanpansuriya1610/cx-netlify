@@ -2373,7 +2373,7 @@ https://www.cypherox.com/fitness-app-solutions","Header: <a href=""javascript:vo
 3. Update the existing tab script to toggle aria-selected along with the active class.
 4. Reset default button styles in CSS so the look does not change.","Before: <a href=""javascript:;"">India</a>
 After:  <button type=""button"" role=""tab"" aria-selected=""true"" aria-controls=""office-india"">India</button>","View Source: footer and header contain no href=""javascript:"".",No,S,Developer,Open
-SW15,"Copyright meta still ""© 2025 Cypherox""",Low,Template,"<head> meta name=""copyright"" (service/company templates)",164,"https://www.cypherox.com/
+SW15,"Copyright meta still ""© 2026 Cypherox""",Low,Template,"<head> meta name=""copyright"" (service/company templates)",164,"https://www.cypherox.com/
 https://www.cypherox.com/about-us
 https://www.cypherox.com/life-at-cypherox
 https://www.cypherox.com/corporate-social-responsibility
@@ -2536,9 +2536,9 @@ https://www.cypherox.com/ai-chatbot-mobile-app-solutions
 https://www.cypherox.com/travel-apps-solutions
 https://www.cypherox.com/entertainment-apps-solutions
 https://www.cypherox.com/education-apps-solutions
-https://www.cypherox.com/fitness-app-solutions","<meta name=""copyright"" content=""© 2025 Cypherox""> on 164 pages; absent on 14 (clone pages and landing pages).","1. In the <head> partial, replace the hard-coded ""© 2025 Cypherox"" in <meta name=""copyright""> with the server-side current year, or delete the tag (it has no SEO effect).
+https://www.cypherox.com/fitness-app-solutions","<meta name=""copyright"" content=""© 2026 Cypherox""> on 164 pages; absent on 14 (clone pages and landing pages).","1. In the <head> partial, replace the hard-coded ""© 2026 Cypherox"" in <meta name=""copyright""> with the server-side current year, or delete the tag (it has no SEO effect).
 2. Do the same in any visible footer copyright line if it is hard-coded.
-3. The 14 pages without the tag (clone and landing templates) need no change.","Before: <meta name=""copyright"" content=""© 2025 Cypherox"">
+3. The 14 pages without the tag (clone and landing templates) need no change.","Before: <meta name=""copyright"" content=""© 2026 Cypherox"">
 After:  <meta name=""copyright"" content=""© {{ now.year }} Cypherox Technologies Pvt. Ltd."">",View Source on any page shows the current year.,No,S,Developer,Open
 SW16,Obsolete meta keywords tag,Low,Template,"<head> meta name=""keywords""",159,"https://www.cypherox.com/
 https://www.cypherox.com/clone-solutions
