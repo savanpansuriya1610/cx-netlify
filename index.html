@@ -2167,10 +2167,10 @@
     
   </style>
   <!-- Full sheets load without blocking first paint. -->
-  <link rel="preload" href="/assets/css/styles.min.css?v=1" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="/assets/css/styles.min.css?v=20261114" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="/assets/css/swiper.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="/assets/css/styles.min.css?v=1">
+    <link rel="stylesheet" href="/assets/css/styles.min.css?v=20261114">
     <link rel="stylesheet" href="/assets/css/swiper.min.css">
   </noscript>
   <link rel="icon" href="https://www.cypherox.com/assets/img/favicon.ico" type="image/x-icon">
@@ -6316,6 +6316,35 @@
   </script>
 
   <script src="../../assets/js/bootstrap.bundle.min.js" defer></script>
+  <!-- Auto-version styles and scripts on page load -->
+  <script>
+    (function () {
+      try {
+        var version = Date.now();
+        var targetPattern = /(styles\.css|styles\.min\.css|script\.js)/i;
+
+        // Update stylesheet & preload links
+        var links = document.querySelectorAll('link[rel="stylesheet"], link[as="style"]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href');
+          if (href && targetPattern.test(href)) {
+            links[i].setAttribute('href', href.split('?')[0] + '?v=' + version);
+          }
+        }
+
+        // Update script tags
+        var scripts = document.querySelectorAll('script[src]');
+        for (var j = 0; j < scripts.length; j++) {
+          var src = scripts[j].getAttribute('src');
+          if (src && targetPattern.test(src)) {
+            scripts[j].setAttribute('src', src.split('?')[0] + '?v=' + version);
+          }
+        }
+      } catch (e) {
+        console.error('Error auto-versioning assets:', e);
+      }
+    })();
+  </script>
 </body>
 
 </html>

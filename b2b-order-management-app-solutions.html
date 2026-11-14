@@ -319,7 +319,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <link rel="stylesheet" href="/assets/css/swiper.min.css">
   <link rel="stylesheet" href="/assets/css/swiper-bundle.min.css">
-  <link rel="stylesheet" href="/assets/css/styles.css?16161616">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20261114">
 
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://www.cypherox.com/assets/img/apple-touch-icon.png">
@@ -4615,7 +4615,7 @@ src="https://www.facebook.com/tr?id=1688705918077878&ev=PageView&noscript=1"
   <script src="../../assets/js/imagesloaded.pkgd.min.js"></script>
   
 <script src="../../assets/js/lenis.min.js"></script>
-  <script src="../../assets/js/script.js?16161616"></script>
+  <script src="../../assets/js/script.js?v=20261114"></script>
 </footer>
 
 </div>
@@ -4686,6 +4686,35 @@ src="https://www.facebook.com/tr?id=1688705918077878&ev=PageView&noscript=1"
   <!-- Start of cypheroxtechnologiespvt Zendesk Widget script -->
 <!-- <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=80a7468a-5d22-4858-8407-853e57146290"> </script> -->
 <!-- End of cypheroxtechnologiespvt Zendesk Widget script -->
+  <!-- Auto-version styles and scripts on page load -->
+  <script>
+    (function () {
+      try {
+        var version = Date.now();
+        var targetPattern = /(styles\.css|styles\.min\.css|script\.js)/i;
+
+        // Update stylesheet & preload links
+        var links = document.querySelectorAll('link[rel="stylesheet"], link[as="style"]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href');
+          if (href && targetPattern.test(href)) {
+            links[i].setAttribute('href', href.split('?')[0] + '?v=' + version);
+          }
+        }
+
+        // Update script tags
+        var scripts = document.querySelectorAll('script[src]');
+        for (var j = 0; j < scripts.length; j++) {
+          var src = scripts[j].getAttribute('src');
+          if (src && targetPattern.test(src)) {
+            scripts[j].setAttribute('src', src.split('?')[0] + '?v=' + version);
+          }
+        }
+      } catch (e) {
+        console.error('Error auto-versioning assets:', e);
+      }
+    })();
+  </script>
 </body>
 
 </html>

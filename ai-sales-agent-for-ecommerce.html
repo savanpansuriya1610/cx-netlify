@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -70,7 +70,7 @@
   <!-- ================== End Additional SEO Tags ================== -->
 
 
-  <link rel="stylesheet" href="/assets/css/styles.css?16161616">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=20261114">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="https://www.cypherox.com/assets/img/apple-touch-icon.png">
@@ -2174,7 +2174,7 @@
 
   <div class="site_wrapper" style="flex-direction: column;">
 <div class="desktop-header">
-  <header class="cust-header-v3">
+  <header class="cust-header-v3" style="background-color: #000;">
       <div class="cursor"></div>
       <div class="header-container">
       <div class="header-inner">
@@ -5010,293 +5010,20 @@
       </div>
 
 
-      <script src="/assets/js/jquery.min.js" defer></script>
-      <script src="/assets/js/swiper.min.js" defer></script>
-      <script src="/assets/js/swiper-bundle.min.js" defer></script>
-      <script src="/assets/js/gsap.min.js" defer></script>
-      <script src="/assets/js/ScrollTrigger.min.js" defer></script>
+      <script src="../../assets/js/jquery.min.js"></script>
+      <script src="../../assets/js/swiper.min.js"></script>
+      <script src="../../assets/js/swiper-bundle.min.js"></script>
+      <script src="../../assets/js/gsap.min.js"></script>
+      <script src="../../assets/js/ScrollTrigger.min.js"></script>
 
-      <script src="/assets/js/bootstrap.bundle.min.js" defer></script>
-      <script src="/assets/js/imagesloaded.pkgd.min.js" defer></script>
+      <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+      <script src="../../assets/js/imagesloaded.pkgd.min.js"></script>
 
-      <script src="/assets/js/lenis.min.js" defer></script>
-      <script src="/assets/js/script.js?16161616" defer></script>
-      <script src="/assets/js/jquery.min.js"></script>
+      <script src="../../assets/js/lenis.min.js"></script>
+      <script src="../../assets/js/script.js?v=20261114"></script>
     </footer>
 
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-
-      function slideUp(el, duration = 300) {
-        if (!el || el.offsetParent === null) return;
-
-        el.style.height = el.offsetHeight + 'px';
-        el.offsetHeight;
-        el.style.transitionProperty = "height, margin, padding";
-        el.style.transitionDuration = duration + "ms";
-        el.style.overflow = "hidden";
-
-        el.style.height = 0;
-        el.style.paddingTop = 0;
-        el.style.paddingBottom = 0;
-        el.style.marginTop = 0;
-        el.style.marginBottom = 0;
-
-        setTimeout(() => {
-          el.style.display = "none";
-          el.removeAttribute("style");
-        }, duration);
-      }
-
-      function slideDown(el, duration = 300) {
-        if (!el) return;
-
-        el.style.removeProperty("display");
-        let display = getComputedStyle(el).display;
-        if (display === "none") display = "block";
-        el.style.display = display;
-
-        let height = el.scrollHeight;
-
-        el.style.overflow = "hidden";
-        el.style.height = 0;
-
-        el.offsetHeight;
-
-        el.style.transitionProperty = "height, margin, padding";
-        el.style.transitionDuration = duration + "ms";
-        el.style.height = height + "px";
-
-        setTimeout(() => {
-          el.style.height = "";
-          el.style.overflow = "";
-          el.style.transitionProperty = "";
-          el.style.transitionDuration = "";
-        }, duration);
-      }
-
-      const menuToggle = document.querySelector('.menu-toggle-link');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const body = document.body;
-
-      menuToggle?.addEventListener('click', function (e) {
-        e.stopPropagation();
-        this.classList.toggle('active');
-        mobileMenu.classList.toggle('open');
-        body.classList.toggle('overflow-hide');
-      });
-
-      document.querySelectorAll(".list-item-1 > .link-item-level-1 .submenu-toggle").forEach(toggle => {
-        toggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          let parent = this.closest(".list-item-1");
-          let submenu = parent.querySelector(".second-sub-menu");
-
-          if (submenu.offsetParent !== null) {
-            slideUp(submenu);
-            parent.classList.remove("active");
-          } else {
-            document.querySelectorAll(".second-sub-menu").forEach(sm => {
-              if (sm !== submenu) slideUp(sm);
-            });
-            document.querySelectorAll(".list-item-1").forEach(li => li.classList.remove("active"));
-
-            slideDown(submenu);
-            parent.classList.add("active");
-          }
-        });
-      });
-
-      document.querySelectorAll(".second-sub-menu-li > a .submenu-toggle").forEach(toggle => {
-        toggle.addEventListener("click", function (e) {
-          e.preventDefault();
-          e.stopPropagation();
-
-          let parent = this.closest(".second-sub-menu-li");
-          let submenu = parent.querySelector(".third-sub-menu");
-
-          if (submenu.offsetParent !== null) {
-            slideUp(submenu);
-            parent.classList.remove("active");
-          } else {
-            document.querySelectorAll(".third-sub-menu").forEach(sm => {
-              if (sm !== submenu) slideUp(sm);
-            });
-            document.querySelectorAll(".second-sub-menu-li").forEach(li => li.classList.remove("active"));
-
-            slideDown(submenu);
-            parent.classList.add("active");
-          }
-        });
-      });
-
-      document.addEventListener("click", function (event) {
-        if (
-          menuToggle &&
-          mobileMenu &&
-          !menuToggle.contains(event.target) &&
-          !mobileMenu.contains(event.target)
-        ) {
-          menuToggle.classList.remove('active');
-          mobileMenu.classList.remove('open');
-          body.classList.remove('overflow-hide');
-
-          document.querySelectorAll(".second-sub-menu, .third-sub-menu").forEach(sm => slideUp(sm));
-          document.querySelectorAll(".list-item-1, .second-sub-menu-li").forEach(li => li.classList.remove("active"));
-        }
-      });
-
-      document.querySelectorAll(".navbar .mega-menu > ul > li").forEach(item => {
-        let link = item.querySelector("a");
-        let subMenu = item.querySelector(".second-sub-menu-inner");
-
-        if (link && subMenu) {
-          link.addEventListener("mouseenter", () => {
-            subMenu.style.display = "block";
-            subMenu.style.opacity = "0";
-            setTimeout(() => subMenu.style.opacity = "1", 10);
-            item.classList.add("active-menu");
-          });
-
-          subMenu.addEventListener("mouseenter", () => {
-            subMenu.style.display = "block";
-            subMenu.style.opacity = "1";
-          });
-
-          item.addEventListener("mouseleave", (e) => {
-            if (!item.contains(e.relatedTarget)) {
-              subMenu.style.opacity = "0";
-              setTimeout(() => subMenu.style.display = "none", 300);
-              item.classList.remove("active-menu");
-            }
-          });
-        }
-      });
-
-      document.querySelectorAll(".second-sub-menu > li > a").forEach(link => {
-        link.addEventListener("mouseenter", function () {
-          let third = this.nextElementSibling;
-
-          if (!this.classList.contains("opend-sub-menu")) {
-            document.querySelectorAll(".third-sub-menu.active").forEach(menu => {
-              menu.style.opacity = "0";
-              setTimeout(() => menu.style.display = "none", 300);
-              menu.classList.remove("active");
-            });
-
-            document.querySelectorAll(".second-sub-menu > li > a.opend-sub-menu").forEach(l => {
-              l.classList.remove("opend-sub-menu");
-            });
-          }
-
-          if (third && third.classList.contains("third-sub-menu")) {
-            third.style.display = "flex";
-            third.style.opacity = "0";
-
-            setTimeout(() => {
-              third.style.opacity = "1";
-              third.classList.add("active");
-              this.classList.add("opend-sub-menu");
-            }, 10);
-          }
-        });
-      });
-
-      document.querySelectorAll(".second-sub-menu > li:first-child > a").forEach(link => {
-        link.classList.add("opend-sub-menu");
-        let third = link.nextElementSibling;
-
-        if (third && third.classList.contains("third-sub-menu")) {
-          third.style.display = "flex";
-          third.style.opacity = "1";
-          third.classList.add("active");
-        }
-      });
-
-      document.querySelectorAll(".second-sub-menu > li").forEach(item => {
-        item.addEventListener("mouseenter", function () {
-          let parent = this.closest(".second-sub-menu-inner");
-          if (parent) {
-            parent.style.display = "block";
-            parent.style.opacity = "1";
-          }
-        });
-
-        item.addEventListener("mouseleave", function (e) {
-          let parent = this.closest(".second-sub-menu-inner");
-          if (parent && !parent.contains(e.relatedTarget)) {
-            parent.style.opacity = "0";
-            setTimeout(() => parent.style.display = "none", 300);
-          }
-        });
-      });
-
-      document.querySelectorAll(".navbar .mega-menu ul li a").forEach(link => {
-        link.addEventListener("click", e => e.stopPropagation());
-      });
-
-      document.querySelectorAll(".second-sub-menu-inner").forEach(menu => {
-        menu.addEventListener("click", e => e.stopPropagation());
-      });
-
-      document.querySelectorAll('.v3-sub-menu-level-2').forEach(menu => {
-        menu.style.height = '0';
-      });
-
-      document.querySelectorAll('.mega-menu.menu-v3 > ul > li').forEach(item => {
-        item.addEventListener("mouseenter", function () {
-          let submenu = this.querySelector('.v3-sub-menu-level-2');
-          if (submenu) {
-            submenu.style.height = submenu.scrollHeight + "px";
-            this.classList.add('hovered');
-          }
-        });
-
-        item.addEventListener("mouseleave", function () {
-          let submenu = this.querySelector('.v3-sub-menu-level-2');
-          if (submenu) {
-            submenu.style.height = "0";
-            this.classList.remove('hovered');
-          }
-        });
-      });
-
-      const officialLink = document.querySelector("li.official-partners");
-      const subMenuSmall = document.querySelector("li.company-multi-dropdown .sub-menu-small");
-      const dropdownMain = document.querySelector(".company-multi-dropdown-main");
-
-      if (officialLink && dropdownMain && subMenuSmall) {
-
-        function openDropdown() {
-          subMenuSmall.style.overflow = "visible";
-          dropdownMain.style.height = dropdownMain.scrollHeight + "px";
-        }
-
-        function closeDropdown() {
-          dropdownMain.style.height = "0px";
-          subMenuSmall.style.overflow = "hidden";
-        }
-
-        officialLink.addEventListener("mouseenter", openDropdown);
-
-        officialLink.addEventListener("mouseleave", () => {
-          setTimeout(() => {
-            if (!dropdownMain.matches(":hover")) {
-              closeDropdown();
-            }
-          }, 100);
-        });
-
-        dropdownMain.addEventListener("mouseenter", openDropdown);
-        dropdownMain.addEventListener("mouseleave", closeDropdown);
-      }
-
-    });
-  </script>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -5711,6 +5438,35 @@
     });
   </script>
 
+  <!-- Auto-version styles and scripts on page load -->
+  <script>
+    (function () {
+      try {
+        var version = Date.now();
+        var targetPattern = /(styles\.css|styles\.min\.css|script\.js)/i;
+
+        // Update stylesheet & preload links
+        var links = document.querySelectorAll('link[rel="stylesheet"], link[as="style"]');
+        for (var i = 0; i < links.length; i++) {
+          var href = links[i].getAttribute('href');
+          if (href && targetPattern.test(href)) {
+            links[i].setAttribute('href', href.split('?')[0] + '?v=' + version);
+          }
+        }
+
+        // Update script tags
+        var scripts = document.querySelectorAll('script[src]');
+        for (var j = 0; j < scripts.length; j++) {
+          var src = scripts[j].getAttribute('src');
+          if (src && targetPattern.test(src)) {
+            scripts[j].setAttribute('src', src.split('?')[0] + '?v=' + version);
+          }
+        }
+      } catch (e) {
+        console.error('Error auto-versioning assets:', e);
+      }
+    })();
+  </script>
 </body>
 
 </html>
